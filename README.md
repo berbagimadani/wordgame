@@ -1,3 +1,5 @@
+browser-sync start --server --files "script.js"
+
 # Future Scope
 
 - auto word finder to get the all possible words present.
