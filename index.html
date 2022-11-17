@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css" />
+        <title>Word Game</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="script.js"></script> 
+    </head>
+    <body>
+        <header>
+            <!-- <h1>Word Game</h1> -->
+        </header>
+        <body>        
+            <button title="Add word to found zone." class="addWordButton" onclick="checkSpellingAndAddWord();">Add Word</button>
+            <button title="clear current selected tiles" class="reset" onclick="reset();">Clear Selection</button>
+            <br/>
+            <span id="message" class="message"></span>
+            <br/>
+            <div id="gameContainer" class="gameContainer">
+            </div> 
+            <main></main>
+        </body>
+        
+        
+        <!-- <script src="english_word_list.js"></script>
+        <script src="index.js"></script> -->
+
+    </body>
+</html>
