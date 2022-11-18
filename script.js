@@ -45,32 +45,66 @@ function splitListString() {
         coordinates.push({
             letter,
             x: 2,
-            y: i //Math.floor(Math.random() * 5) + 1
+            y: i+1 //Math.floor(Math.random() * 5) + 1
         });
     }
 }
 
+const XY2 = [];
 function vertical(i,j) {
     var x = j;
     var y = i;
     let xCor = coordinates[0].x ?? ''
     let yCor = coordinates[i] ?? '';
     let yCorNum = yCor.y ?? '';
+    let xCorNum = yCor.x ?? '';
     let letter = yCor.letter ?? '';
     //console.log(y, yCorNum )
     //console.log(i, j,  yCorNum, x, xCor);
-    if( xCor==x && y  ) { 
-        console.log(y, j,  yCorNum, x);
+    
+    let XY = yCorNum+','+xCorNum;
+    XY2.push(y+','+j);
+
+    if(x==0&&y==1) { 
+        colors[1][0] = 'blue'; 
+    }
+    if(x==0&&y==2) { 
+        colors[2][0] = 'blue'; 
+    }
+    if(x==0&&y==3) {
+        colors[3][0] = 'blue'; 
+    }
+    if(x==0&&y==4) {
+        colors[4][0] = 'blue'; 
+    }
+    if(x==0&&y==5) {
+        colors[5][0] = 'blue'; 
+    }
+    if(x==0&&y==6) {
+        colors[6][0] = 'blue'; 
+    }
+    if(x==0&&y==7) {
+        colors[7][0] = 'blue'; 
+    }
+
+
+    if(XY) {
+        //console.log(yCorNum, y);
+        //colors[y][j] = 'blue';
+        //word[y][j] = letter;
+    } 
+    if( XY2 == XY )   { 
+        //console.log(y, j,  yCorNum, x);
         //colors[y][j] = 'blue';
         //word[y][j] = letter;
     }
+    
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
     splitListString();
-
 
     console.log(coordinates);
 
