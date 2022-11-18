@@ -38,23 +38,19 @@ var shuffledString = shuffleText(alphabets);
 
 function splitListString() {
     const stringArray = splitText(string[1]);
+    var ran = Math.floor(Math.random() * 3) + 1;
     for(var i=0; i<stringArray.length; i++) {
         let letter = stringArray[i]; 
 
         coordinates.push({
             letter,
-            x: 2,
-            y: i+1 //Math.floor(Math.random() * 5) + 1
+            x: 3,
+            y: i + ran
         });
     }
 }
 
-const XY2 = [];
-
-function validation(x,y, xCorNum, yCorNum, letter) { 
-
- 
-}
+//console.log(Math.floor(Math.random() * 3) + 1)
 
 function vertical(i,j) {
     var x = j;
@@ -66,12 +62,11 @@ function vertical(i,j) {
     let letter = yCor.letter ?? ''; 
     
     for (let i = 0; i < coordinates.length; i++) {
-        
         //console.log(coordinates[i].y)
         if(x==0&&y==coordinates[i].y) { 
-            console.log('sss', coordinates[i].y, coordinates[i].letter)
-            colors[coordinates[i].y][1] = 'blue'; 
-            word[coordinates[i].y][1] = coordinates[i].letter;
+            console.log(coordinates[i].y, coordinates[i].letter)
+            colors[coordinates[i].y][coordinates[i].x] = 'blue'; 
+            word[coordinates[i].y][coordinates[i].x] = coordinates[i].letter;
         }    
     }
     
