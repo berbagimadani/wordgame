@@ -38,14 +38,17 @@ var shuffledString = shuffleText(alphabets);
 
 function splitListString() {
     const stringArray = splitText(string[1]);
-    var ran = Math.floor(Math.random() * 3) + 1;
+    
+    var ranY = Math.floor(Math.random() * (cols-stringArray.length)) + 1;
+    var ranX = Math.floor(Math.random() * rows) + 1;
+
     for(var i=0; i<stringArray.length; i++) {
         let letter = stringArray[i]; 
 
         coordinates.push({
             letter,
-            x: 3,
-            y: i + ran
+            x: ranX,
+            y: i + ranY
         });
     }
 }
