@@ -39,8 +39,7 @@ var shuffledString = shuffleText(alphabets);
 function splitListString() {
     const stringArray = splitText(string[1]);
     for(var i=0; i<stringArray.length; i++) {
-        let letter = stringArray[i];
-        console.log(letter);
+        let letter = stringArray[i]; 
 
         coordinates.push({
             letter,
@@ -51,54 +50,64 @@ function splitListString() {
 }
 
 const XY2 = [];
+
+function validation(x,y, xCorNum, yCorNum, letter) { 
+
+ 
+}
+
 function vertical(i,j) {
     var x = j;
     var y = i;
-    let xCor = coordinates[0].x ?? ''
+    let xCor = coordinates[j] ?? ''
     let yCor = coordinates[i] ?? '';
     let yCorNum = yCor.y ?? '';
-    let xCorNum = yCor.x ?? '';
-    let letter = yCor.letter ?? '';
-    //console.log(y, yCorNum )
-    //console.log(i, j,  yCorNum, x, xCor);
+    let xCorNum = xCor.x ?? '';
+    let letter = yCor.letter ?? ''; 
     
-    let XY = yCorNum+','+xCorNum;
-    XY2.push(y+','+j);
-
-    if(x==0&&y==1) { 
-        colors[1][0] = 'blue'; 
-    }
-    if(x==0&&y==2) { 
-        colors[2][0] = 'blue'; 
-    }
-    if(x==0&&y==3) {
-        colors[3][0] = 'blue'; 
-    }
-    if(x==0&&y==4) {
-        colors[4][0] = 'blue'; 
-    }
-    if(x==0&&y==5) {
-        colors[5][0] = 'blue'; 
-    }
-    if(x==0&&y==6) {
-        colors[6][0] = 'blue'; 
-    }
-    if(x==0&&y==7) {
-        colors[7][0] = 'blue'; 
-    }
-
-
-    if(XY) {
-        //console.log(yCorNum, y);
-        //colors[y][j] = 'blue';
-        //word[y][j] = letter;
-    } 
-    if( XY2 == XY )   { 
-        //console.log(y, j,  yCorNum, x);
-        //colors[y][j] = 'blue';
-        //word[y][j] = letter;
+    for (let i = 0; i < coordinates.length; i++) {
+        
+        //console.log(coordinates[i].y)
+        if(x==0&&y==coordinates[i].y) { 
+            console.log('sss', coordinates[i].y, coordinates[i].letter)
+            colors[coordinates[i].y][1] = 'blue'; 
+            word[coordinates[i].y][1] = coordinates[i].letter;
+        }    
     }
     
+    // if(x==0&&y==0) { 
+    //     colors[0][0] = 'blue'; 
+    // }
+    // if(x==0&&y==1) { 
+    //     colors[1][0] = 'blue'; 
+    // }
+    // if(x==0&&y==2) { 
+    //     colors[2][0] = 'blue'; 
+    // }
+    // if(x==0&&y==3) {
+    //     colors[3][0] = 'blue'; 
+    // }
+    // if(x==0&&y==4) {
+    //     colors[4][0] = 'blue'; 
+    // }
+    // if(x==0&&y==5) {
+    //     colors[5][0] = 'blue'; 
+    // }
+    // if(x==0&&y==6) {
+    //     colors[6][0] = 'blue'; 
+    // }
+    // if(x==0&&y==7) {
+    //     colors[7][0] = 'blue'; 
+    // }
+ 
+    //console.log(y, j,  yCorNum, x);
+    //colors[y][j] = 'blue';
+    //word[y][j] = letter; 
+
+    //console.log(y, j,  yCorNum, x);
+    //colors[y][j] = 'blue';
+    //word[y][j] = letter; 
+
 }
 
 function setup() {
@@ -109,7 +118,7 @@ function setup() {
     console.log(coordinates);
 
     var k  = 0;
-    for (var i = 0; i < cols; i++) {  
+    for (var i =0; i < cols; i++) {  
         colors[i] = [];
         word[i] = [];
         for (var j = 0; j < rows; j++) {
@@ -117,24 +126,13 @@ function setup() {
             
             vertical(i, j);
 
-            // if(i==2&&j==2) { 
-            //     colors[i][j] = 'blue';
-            //     word[i][j] = 'R';
-            // } else if(i==3&&j==1) { 
-            //     colors[i][j] = 'blue';
-            //     word[i][j] = 'E';
-            // } else if(i==4&&j==0) { 
-            //     colors[i][j] = 'blue';
-            //     word[i][j] = 'D';
-            // }
-
             fill( colors[i][j] ?? 51); 
             //fill(51) 
             rect(j*60, i*60, 60, 60);
             fill('red');
             textSize(32);
             text(word[i][j] ?? shuffledString[k], (j*60)+10, (i*60)+10, 50, 50);
-            textSize(18);
+            textSize(15);
             fill('#eee')
             text(i+','+j, (j*60)+20, (i*60)+30, 50, 50);
 
