@@ -37,7 +37,7 @@ for(var i = 0; i < lettersCount ;){
 var shuffledString = shuffleText(alphabets);
 
 function splitListString() {
-    const stringArray = splitText(string[1]);
+    const stringArray = splitText(string[0]);
     
     var ranY = Math.floor(Math.random() * (cols-stringArray.length)) + 1;
     var ranX = Math.floor(Math.random() * rows) + 1;
@@ -47,7 +47,7 @@ function splitListString() {
 
         coordinates.push({
             letter,
-            x: ranX,
+            x: ranX-1,
             y: i + ranY
         });
     }
@@ -67,7 +67,7 @@ function vertical(i,j) {
     for (let i = 0; i < coordinates.length; i++) {
         //console.log(coordinates[i].y)
         if(x==0&&y==coordinates[i].y) { 
-            console.log(coordinates[i].y, coordinates[i].letter)
+            console.log(coordinates[i].y, coordinates[i].x, coordinates[i].letter)
             colors[coordinates[i].y][coordinates[i].x] = 'blue'; 
             word[coordinates[i].y][coordinates[i].x] = coordinates[i].letter;
         }    
